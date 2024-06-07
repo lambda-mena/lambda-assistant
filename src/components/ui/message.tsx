@@ -12,7 +12,9 @@ export const Message = ({content}: MessageProps) => {
       <Separator />
       <div className="flex p-2">
         <div className="md:text-lg lg:text-2xl xl:text-xl text-start">
-          <ReactMarkdown className="markdown" children={content} />
+          <ReactMarkdown className="markdown">
+            {content}
+          </ReactMarkdown>
         </div>
       </div>
     </>
