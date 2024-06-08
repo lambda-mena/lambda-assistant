@@ -8,9 +8,10 @@ type MessageProps = {
 };
 
 export const Message = ({ content, className }: MessageProps) => {
+  const lineBreak = content.split(/\r?\n|\r|\n/g).length;
   let renderedContent: JSX.Element = <>It&apos;s a pleasure to have you here</>;
   const markdownClasses = "markdown max-h-full text-lg overflow-y-auto max-w-full text-wrap";
-  const variableClass = `${className} ${content.length >= 500 ? "text-start" : "text-center"}`;
+  const variableClass = `${className} ${lineBreak >= 4 ? "text-start" : "text-center"}`;
 
   if (content == "loading") {
     renderedContent = <Loader2 className="mx-auto size-12 animate-spin" />;
