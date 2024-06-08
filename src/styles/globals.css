@@ -9,7 +9,7 @@
 @media screen and (min-width: 820px) {
   .markdown::-webkit-scrollbar {
     background-color: var(--background);
-    width: 2;
+    width: 0.2em;
   }
   
   .markdown::-webkit-scrollbar-thumb {
