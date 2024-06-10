@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <div className='p-5'>
         <div className="flex justify-between">
-            <span className='text-sm'>©️ 2024 Lambda</span>
+            <Link href="/" className='text-sm'>©️ 2024 Lambda</Link>
             <Link href="https://github.com/VaatuDev/lambda-assistant"><BsGithub/></Link>
         </div>
     </div>

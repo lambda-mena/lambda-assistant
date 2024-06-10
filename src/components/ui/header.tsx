@@ -4,9 +4,10 @@ import React from 'react'
 
 export const Header = () => {
   return (
-    <div className='flex'>
-        <Image width={71} height={71} src="/lambda-icon.png" alt='LambdaIcon'/>
-        <Link href="/" className='my-auto font-bold text-[24px]'>Lambda Assistant</Link>
+    <div className='flex animate__animated animate__fadeInDown'>
+      <Link className='mx-auto' href="/">
+        <Image width={90} height={90} src="/lambda-icon.png" alt='LambdaIcon'/>
+      </Link>
     </div>
   )
 }

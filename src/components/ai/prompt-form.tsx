@@ -33,8 +33,8 @@ export const PromptForm = ({ sendPrompt }: PromptFormProps) => {
   return (
     <>
       {message == "-" && <Loader2 className="m-auto size-12 animate-spin" />}
-      {message != "-" && <Message className="flex-auto content-center h-96" content={message} /> }
-      <form onSubmit={onFormSubmit} className="flex mx-auto my-5 w-full md:w-2/3 lg:w-9/12 xl:w-1/2">
+      {message != "-" && <Message className="flex-auto animate__animated animate__fadeIn content-center h-96" content={message} /> }
+      <form onSubmit={onFormSubmit} className="flex animate__animated animate__fadeInUp mx-auto my-5 w-full md:w-2/3 lg:w-9/12 xl:w-1/2">
         <Input ref={inputRef} className="me-2 h-12" placeholder="Send a prompt" disabled={!canPrompt} required />
         <Button type="submit" className="h-12" variant="outline" disabled={!canPrompt} size="icon">
           <AiOutlineEnter size={20} />
