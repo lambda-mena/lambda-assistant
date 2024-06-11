@@ -6,18 +6,6 @@
   all: revert;
 }
 
-@media screen and (min-width: 820px) {
-  .markdown::-webkit-scrollbar {
-    background-color: var(--background);
-    width: 0.2em;
-  }
-  
-  .markdown::-webkit-scrollbar-thumb {
-    background-color: white;
-    border-radius: 5px;
-  } 
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
