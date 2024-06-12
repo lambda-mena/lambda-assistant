@@ -1,5 +1,5 @@
 import { PromptForm } from "@/components/ai/prompt-form";
-import { generateResponse } from "@/actions/gemini";
+import { generateResponse } from "@/server/gemini";
 
 export default function Page() {
   return (
