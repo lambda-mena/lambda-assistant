@@ -1,5 +1,6 @@
 "use client";
 
+import { generateResponse } from "@/server/gemini-actions";
 import { FormEvent, useRef, useState } from "react";
 import { Message } from "@/components/ui/message";
 import { Button } from "@/components/ui/button";
@@ -7,11 +8,7 @@ import { AiOutlineEnter } from "react-icons/ai";
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 
-interface PromptFormProps {
-  sendPrompt: (value: string) => Promise<string>;
-}
-
-export const PromptForm = ({ sendPrompt }: PromptFormProps) => {
+export const PromptForm = () => {
   const [message, setMessage] = useState("I'm happy to have you here");
   const [canPrompt, setCanPrompt] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -25,7 +22,7 @@ export const PromptForm = ({ sendPrompt }: PromptFormProps) => {
     e.preventDefault();
     if (!inputRef.current) return;
     toggleForm(false);
-    const promptResult = await sendPrompt(inputRef.current.value);
+    const promptResult = await generateResponse(inputRef.current.value);
     inputRef.current.value = "";
     toggleForm(true, promptResult);
   };

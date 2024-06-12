@@ -1,5 +1,6 @@
 "use client";
 
+import { generateCodeOutput } from "@/server/gemini-actions";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { FormEvent, useRef, useState } from "react";
@@ -8,11 +9,7 @@ import { TextAreaBlock } from "./text-area-block";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
-interface CodeFormProps {
-  sendCodePrompt: (code: string, error: string) => Promise<string>;
-}
-
-export const CodeForm = ({ sendCodePrompt }: CodeFormProps) => {
+export const CodeForm = () => {
   const [output, setOutput] = useState({ value: "", isLoading: false });
   const codeInputRef = useRef<HTMLTextAreaElement>(null);
   const errorInputRef = useRef<HTMLTextAreaElement>(null);
@@ -22,7 +19,7 @@ export const CodeForm = ({ sendCodePrompt }: CodeFormProps) => {
     let code = codeInputRef.current!.value;
     let error = errorInputRef.current!.value;
     setOutput({ isLoading: true, value: "" });
-    const codeResult = await sendCodePrompt(code, error);
+    const codeResult = await generateCodeOutput(code, error);
     setOutput({ isLoading: false, value: codeResult });
   };
 
