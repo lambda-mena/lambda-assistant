@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { TbLambda } from "react-icons/tb";
 import Link from 'next/link';
 import React from 'react'
 
@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <div className='flex animate__animated animate__fadeInDown'>
       <Link className='mx-auto' href="/">
-        <Image width={90} height={90} src="/lambda-icon.png" alt='LambdaIcon'/>
+        <TbLambda className="my-5" size={40} />
       </Link>
     </div>
   )
