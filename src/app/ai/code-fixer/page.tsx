@@ -1,5 +1,4 @@
 import { CodeForm } from "@/components/ai/code-form";
-import { generateCodeOutput } from "@/server/gemini-actions";
 
 export default function CodeFixerPage() {
   return (

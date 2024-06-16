@@ -1,7 +1,7 @@
 import { getBot } from "@/server/discord-actions";
+import { Button } from "../ui/button";
 import Image from "next/image";
 import React from "react";
-import { Button } from "../ui/button";
 import Link from "next/link";
 
 export const DiscordTemplate = async () => {

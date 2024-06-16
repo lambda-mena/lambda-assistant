@@ -1,7 +1,7 @@
 "use client";
 
+import { ResponsiveSeparator } from "../ui/responsive-separator";
 import { generateCodeOutput } from "@/server/gemini-actions";
-import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { FormEvent, useRef, useState } from "react";
 import styles from "@/styles/scrollbar.module.css";
@@ -38,9 +38,8 @@ export const CodeForm = () => {
           />
         )}
       </div>
-      <div className="flex flex-col animate__animated animate__fadeIn">
-        <Separator className="flex my-auto hidden lg:block lg:h-96" orientation="vertical" />
-        <Separator className="my-4 block lg:hidden" orientation="horizontal" />
+      <div className="flex flex-col animate__animated animate__fadeIn my-auto">
+        <ResponsiveSeparator verticalClasses="flex lg:h-96" horizontalClasses="my-4" />
       </div>
       <form onSubmit={onFormSubmit} className="lg:w-1/3 flex flex-col gap-y-3 animate__animated animate__fadeIn">
         <TextAreaBlock name="Code" inputRef={codeInputRef} isLoading={output.isLoading} />

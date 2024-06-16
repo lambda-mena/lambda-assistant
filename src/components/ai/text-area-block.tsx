@@ -1,6 +1,6 @@
-import React from "react";
-import { Textarea } from "../ui/textarea";
 import styles from "@/styles/scrollbar.module.css";
+import { Textarea } from "../ui/textarea";
+import React from "react";
 
 interface TextAreaBlockProps {
   name: string;
