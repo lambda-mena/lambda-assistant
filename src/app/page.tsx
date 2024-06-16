@@ -18,6 +18,11 @@ export default function Home() {
             Code Assistant
           </Link>
         </Button>
+        <Button className="py-0" variant="link">
+          <Link href="/ai/bot-extension">
+            Bot Extension
+          </Link>
+        </Button>
       </div>
     </main>
   );
