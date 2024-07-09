@@ -10,10 +10,10 @@ export const DiscordTemplate = async () => {
 
   return (
     <>
-      <div className="flex flex-col text-center gap-4 lg:my-auto lg:w-1/2 animate__animated animate__fadeIn">
+      <div className="flex flex-col text-center gap-4 lg:my-auto lg:w-1/2 animate-in fade-in">
         <div className="flex flex-col w-8/12 mx-auto">
           <Image
-            className="mx-auto"
+            className="mx-auto rounded-xl"
             width={90}
             height={90}
             priority={true}
