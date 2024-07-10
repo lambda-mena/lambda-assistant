@@ -4,18 +4,21 @@ import React, { memo, useEffect, useRef } from "react";
 import styles from "@/styles/scrollbar.module.css";
 import Markdown from "marked-react";
 import { Message } from "ai";
+import { Loader2 } from "lucide-react";
 
-type MessageProps = {
+type PromptMessagesProps = {
   className: string;
-  content: Message[];
+  messages: Message[];
   isLoading: boolean;
+  error: Error | undefined;
 };
 
-export const MessageArea = memo(function Message({
+export const PromptMessages = memo(function Message({
   className,
-  content,
+  messages,
   isLoading,
-}: MessageProps) {
+  error
+}: PromptMessagesProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,8 +28,8 @@ export const MessageArea = memo(function Message({
   });
 
   return (
-    <div ref={ref} className={`${className} ${styles.scrollbar} max-h-full text-lg overflow-y-auto max-w-full text-wrap`}>
-      {content.map((message) => (
+    <div ref={ref} className={`${className} ${styles.scrollbar}`}>
+      {messages.map((message) => (
           <>
             <div className="flex flex-col gap-x-2 p-5 animate-in fade-in duration-300" key={message.id}>
               <strong>{message.role == "user" ? "You" : "Lambda"}</strong>
@@ -38,7 +41,8 @@ export const MessageArea = memo(function Message({
             </div>
           </>
         ))}
-      {isLoading && <div className="p-5"> Lambda is writing... </div>}
+      {isLoading && <div className="p-5 flex gap-x-2"> Lambda is writing <Loader2 className="animate-spin" /> </div>}
+      {error && <div className="p-5"> 😢 Lambda ran into a unknown error... </div>}
     </div>
   );
 });
