@@ -13,10 +13,11 @@ export const PromptForm = () => {
 
   return (
     <>
-      <MessageArea
-        className="flex-auto animate-in fade-in content-center h-96" 
-        content={messages} 
-      />
+      {messages.length > 0 ? <MessageArea
+        className="flex-auto animate-in fade-in h-96" 
+        content={messages}
+        isLoading={isLoading}
+      /> : <div className="flex-auto h-96 m-auto text-lg content-center"> Try a prompt. </div>}
       <form onSubmit={handleSubmit} className="flex animate-in fade-in mx-auto my-5 w-full md:w-2/3 lg:w-9/12 xl:w-1/2">
         <Input className="me-2 h-12" placeholder="Send a prompt" value={input} onChange={handleInputChange} disabled={isLoading} required />
         <Button type="submit" className="h-12" variant="outline" disabled={isLoading} size="icon">

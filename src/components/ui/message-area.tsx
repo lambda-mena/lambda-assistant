@@ -8,11 +8,13 @@ import { Message } from "ai";
 type MessageProps = {
   className: string;
   content: Message[];
+  isLoading: boolean;
 };
 
 export const MessageArea = memo(function Message({
-  content,
   className,
+  content,
+  isLoading,
 }: MessageProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -24,8 +26,7 @@ export const MessageArea = memo(function Message({
 
   return (
     <div ref={ref} className={`${className} ${styles.scrollbar} max-h-full text-lg overflow-y-auto max-w-full text-wrap`}>
-      {content.length > 0 &&
-        content.map((message) => (
+      {content.map((message) => (
           <>
             <div className="flex flex-col gap-x-2 p-5 animate-in fade-in duration-300" key={message.id}>
               <strong>{message.role == "user" ? "You" : "Lambda"}</strong>
@@ -37,7 +38,7 @@ export const MessageArea = memo(function Message({
             </div>
           </>
         ))}
-      {content.length <= 0 && <div className="text-center">Try a prompt, win a output.</div>}
+      {isLoading && <div className="p-5"> Lambda is writing... </div>}
     </div>
   );
 });
