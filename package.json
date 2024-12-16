@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ai-sdk/google": "^0.0.26",
+    "@ai-sdk/google": "^1.0.10",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-hover-card": "^1.0.7",
     "@radix-ui/react-label": "^2.0.2",
